@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "s Johnson",
+        "duration": {
+            "from": "2024-05-10",
+            "to": "2024-07-15"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "duration": {
+            "from": "2024-04-15",
+            "to": "2024-07-15"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Alex Johnson",
+        "duration": {
+            "from": "2024-05-10",
+            "to": "2024-08-10"
+        }
+    }
+]

@@ -89,14 +89,16 @@ function updateMember(req, res, next) {
         const currData = readFile(membersDir)
         const trainersIds = readFile(trainersDir).map(el => el.id)
         const { nationalId, trainerId } = req.body
-        if (!trainersIds.includes(trainerId)) {
+        if (!trainersIds.includes(trainerId) && trainerId) {
             throw throwError("Invalid Trainer Id", 400)
         }
-        currData.forEach(element => {
-            if (element.nationalId == nationalId && element.id != req.params.id) {
-                throw throwError("National Id already exists", 400)
-            }
-        });
+        if(nationalId){
+            currData.forEach(element => {
+                if (element.nationalId == nationalId && element.id != req.params.id) {
+                    throw throwError("National Id already exists", 400)
+                }
+            });
+        }
         const data = updataFromFile(membersDir, req.params.id, req.body, currData)
         console.log(data);
         return res.status(200).json({ data })

@@ -21,7 +21,9 @@ export function beforeUpdateTrainerValidation(req, res, next) {
             ["name", "duration"],
             'Trainer object should contain only "name"and duration only"'
         );
-        updateSchemaValidation(req.body.duration, ["from", "to"], "duration must contain from and to atttributes only")
+        if(req.body.duration){
+            updateSchemaValidation(req.body.duration, ["from", "to"], "duration must contain from and to atttributes only")
+        }
         next()
     } catch (error) {
         next(error)
